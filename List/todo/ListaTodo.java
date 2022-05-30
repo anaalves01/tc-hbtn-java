@@ -21,10 +21,10 @@ public class ListaTodo {
     public void adicionarTarefa(Tarefa tarefa) throws Exception {
         for (Tarefa t : tarefas) {
             if (t.getIdentificador() == tarefa.getIdentificador())
-                throw new Exception("Tarefa com identificador " + tarefa.getIdentificador() + " ja existente na lista");
+                throw new IllegalArgumentException("Tarefa com identificador " + tarefa.getIdentificador() + " ja existente na lista");
             
             if (tarefa.getDescricao().equals("") || tarefa.getDescricao().isEmpty() || tarefa.getDescricao().equals(null))
-                throw new Exception("Descricao de tarefa invalida");
+                throw new IllegalArgumentException("Descricao de tarefa invalida");
         }   
 
         tarefas.add(tarefa);
