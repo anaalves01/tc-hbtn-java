@@ -22,7 +22,7 @@ public class Pedido {
                 totalDeCaixas += pedidoCookie.getQuantidadeCaixas();
         }
 
-        cookies.removeIf(pedido -> pedido.getSabor().equals(sabor));
+        cookies.removeIf(x -> x.getSabor().equals(sabor));
 
         return totalDeCaixas;
     }
