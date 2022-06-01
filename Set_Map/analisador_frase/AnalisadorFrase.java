@@ -13,8 +13,8 @@ public class AnalisadorFrase {
         frase = frase.replace(".", "");
 
         String[] frases = frase.split(" ");
-        for (int i = 0; i < frases.length; i++) {
-            array.add(frases[i].toLowerCase());
+        for (String s : frases) {
+            array.add(s.toLowerCase());
         }
 
         Collections.sort(array);
@@ -25,5 +25,5 @@ public class AnalisadorFrase {
 
         return tree;
     }
-    
+
 }
