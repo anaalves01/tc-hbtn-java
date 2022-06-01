@@ -9,18 +9,12 @@ public class NumerosDuplicados {
     public static TreeSet<Integer> buscar(int[] numeros) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         Set<Integer> set = new HashSet<Integer>();
-        TreeSet<Integer> tree = new TreeSet<Integer>();
 
-        for (int i = 0; i < numeros.length; i++) {
-            list.add(numeros[i]);
+        for (int numero : numeros) {
+            list.add(numero);
         }
 
-        Set<Integer> set2 = list.stream().filter(x -> !set.add(x)).collect(Collectors.toSet());
-        for (Integer num : set2) {
-            tree.add(num);
-        }
-
-        return tree;
+        return list.stream().filter(x -> !set.add(x)).distinct().collect(Collectors.toCollection(TreeSet::new));
     }
-    
+
 }
