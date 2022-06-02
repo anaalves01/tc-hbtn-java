@@ -28,5 +28,4 @@ public abstract class Armazem<T> implements Armazenavel<T> {
         return map.get(nome);
     }
     
-    
 }
