@@ -2,9 +2,11 @@ import java.util.*;
 
 public class Blog {
 
-    List<Post> postagens = new ArrayList<>();
+    List<Post> postagens;
 
-    public Blog() { }
+    public Blog() { 
+        setPostagens(new ArrayList<>());
+    }
 
     public Blog(List<Post> postagens) {
         setPostagens(postagens);
@@ -37,8 +39,7 @@ public class Blog {
 
         for (String categoria : getCategoria()) {
             if (contagem.containsKey(categoria)) {
-                Integer contador = contagem.get(categoria);
-                contagem.put(categoria, contador++);
+                contagem.put(categoria, contagem.get(categoria) + 1);
             } else {
                 contagem.put(categoria, 1);
             }
