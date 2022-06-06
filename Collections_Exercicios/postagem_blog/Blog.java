@@ -2,29 +2,30 @@ import java.util.*;
 
 public class Blog {
 
-    private Set<Post> postagens;
+    private List<Post> postagens;
 
-    public Blog() { 
-        setPostagens(new HashSet<>());
+    public Blog() {
+        setPostagens(new ArrayList<>());
     }
 
-    public Blog(Set<Post> postagens) {
+    public Blog(List<Post> postagens) {
         setPostagens(postagens);
     }
 
-    public Set<Post> getPostagens() {
+    public List<Post> getPostagens() {
         return postagens;
     }
 
-    public void setPostagens(Set<Post> postagens) {
+    public void setPostagens(List<Post> postagens) {
         this.postagens = postagens;
     }
 
     public void adicionarPostagem(Post post) {
-        if (postagens.contains(post)) {
-            throw new IllegalArgumentException("Postagem jah existente");
+        for (Post p : getPostagens()) {
+            if (p.getAutor().equals(post.getAutor()) && p.getTitulo().equals(post.getTitulo())) {
+                throw new IllegalArgumentException("Postagem jah existente");
+            }
         }
-
         getPostagens().add(post);
     }
 

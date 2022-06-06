@@ -26,7 +26,7 @@ public class Autor implements Comparable<Autor> {
         this.sobrenome = sobrenome;
     }
 
-    
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -65,7 +65,7 @@ public class Autor implements Comparable<Autor> {
 
     @Override
     public int compareTo(Autor autor) {
-       return getNome().compareToIgnoreCase(autor.getNome());
+        return getNome().compareTo(autor.getNome());
     }
 
 }

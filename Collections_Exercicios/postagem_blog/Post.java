@@ -96,7 +96,7 @@ public class Post implements Comparable<Post> {
 
     @Override
     public int compareTo(Post post) {
-        return getTitulo().compareToIgnoreCase(post.getTitulo());
+        return getTitulo().compareTo(post.getTitulo());
     }
 
 }
