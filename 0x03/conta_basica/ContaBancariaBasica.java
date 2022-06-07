@@ -42,36 +42,36 @@ public class ContaBancariaBasica {
         if (valor <= 0) {
             throw new OperacaoInvalidaException("Valor para deposito deve ser maior que 0");
         } 
-        saldo += valor;
+        setSaldo(getSaldo() + valor);
     }
 
     public void sacar(double valor) throws OperacaoInvalidaException {
         if (valor <= 0) {
             throw new OperacaoInvalidaException("Valor de saque deve ser menor que 0");
-        } else if (valor > saldo) {
+        } else if (valor > getSaldo()) {
             throw new OperacaoInvalidaException("Valor de saque deve ser menor que o saldo atual");
         }
-        saldo -= valor;
+        setSaldo(getSaldo() - valor);
     }
 
     public double calcularTarifaMensal() {
-        if ((saldo * 0.10) < 10.0) {
-            return saldo * 0.10;
+        if ((getSaldo() * 0.10) < 10.0) {
+            return getSaldo() * 0.10;
         } else {
             return 10;
         }
     }
 
     public double calcularJurosMensal() {
-        if (saldo > 0) {
-            return saldo * ((taxaJurosAnual / 100) / 12);
+        if (getSaldo() > 0) {
+            return getSaldo() * ((getTaxaJurosAnual() / 100) / 12);
         } else {
             return 0;
         }
     }
 
     public void aplicarAtualizacaoMensal() {
-        saldo = (saldo + calcularJurosMensal()) - calcularTarifaMensal();
+        setSaldo((getSaldo() + calcularJurosMensal()) - calcularTarifaMensal());
     }
     
 }
