@@ -7,7 +7,7 @@ public class Produto {
     private Double percentualMarkUp = 0.1;
 
     public Supplier<Double> precoComMarkUp = () -> getPreco() + (getPreco() * getPercentualMarkUp());
-    public Consumer<Double> atualizarMarkUp = (valor) -> setPercentualMarkUp(valor/100);
+    public Consumer<Double> atualizarMarkUp = (valor) -> percentualMarkUp = (valor/100);
 
     public Produto() { }
 
