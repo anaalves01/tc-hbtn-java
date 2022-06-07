@@ -6,8 +6,8 @@ public class Produto {
     private Double preco;
     private Double percentualMarkUp = 0.1;
 
-    Supplier<Double> precoComMarkUp = () -> getPreco() + (getPreco() * getPercentualMarkUp());
-    Consumer<Double> atualizarMarkUp = (Double valor) -> setPercentualMarkUp(valor/100);
+    public Supplier<Double> precoComMarkUp = () -> getPreco() + (getPreco() * getPercentualMarkUp());
+    public Consumer<Double> atualizarMarkUp = (Double valor) -> setPercentualMarkUp(valor/100);
 
     public Produto() { }
 
