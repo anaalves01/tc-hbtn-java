@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings(value="unchecked")
 public class SerializarEstudantes<Estudante> {
 
     private String nomeArquivo;
